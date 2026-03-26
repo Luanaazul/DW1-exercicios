@@ -1,80 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhaskara</title>
+    <link rel="stylesheet" href="bhaskara.css">
 </head>
+
 <body>
 
-    <h2>Calculadora de Bhaskara</h2>
+    <header>
+        Exemplo do uso de tags semânticas e CSS
+    </header>
 
-    <label>A: </label>
-    <input type="number" id="a"><br><br>
+    <main>
+        <section>
+            <h1>Bhaskara</h1>
 
-    <label>B: </label>
-    <input type="number" id="b"><br><br>
+            <label for="inputA" id="labelDoInputA">Valor A</label>
+            <input type="number" id="inputA">
 
-    <label>C: </label>
-    <input type="number" id="c"><br><br>
+            <label for="inputB">Valor B</label>
+            <input type="number" id="inputB">
 
-    <button onclick="calcular()">Calcular</button>
+            <label for="inputC">Valor C</label>
+            <input type="number" id="inputC">
 
-    <h3 id="resultado"></h3>
+            <button onclick="funcaoCalcular()">Calcular</button>
 
-    <script>
-        function calcular() {
-            let a = Number(document.getElementById("a").value);
-            let b = Number(document.getElementById("b").value);
-            let c = Number(document.getElementById("c").value);
+            <div class="resultado">
+                <p><strong>X1:</strong> <span id="respX1">0</span></p>
+                <p><strong>X2:</strong> <span id="respX2">0</span></p>
+            </div>
+        </section>
+    </main>
 
-            let delta = b * b - 4 * a * c;
+    <footer id="footer">
+        <span id="mensagem">Preencha os valores e calcule</span>
+    </footer>
 
-            if (delta < 0) {
-                document.getElementById("resultado").innerText = "Não existem raízes reais.";
-                return;
-            }
-
-            let x1 = (-b + Math.sqrt(delta)) / (2 * a);
-            let x2 = (-b - Math.sqrt(delta)) / (2 * a);
-
-            document.getElementById("resultado").innerText =
-                "x1 = " + x1 + " | x2 = " + x2;
-        }
-    </script>
+    <script src="bhaskara.js"></script>
 
 </body>
-</html>
 
-
-</body>
-</html>
-
-
-</body>
-</html>
-</body>
 </html>
