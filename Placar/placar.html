@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar de Jogo</title>
+    <link rel="stylesheet" href="placar.css">
+</head>
+<body>
+
+    <header>
+        <h1>Placar</h1>
+    </header>
+
+    <main>
+        <div class="placar-container">
+
+            <div class="time">
+                <h2 id="nomeTime1">Time 1</h2>
+                <p class="pontos" id="pontosTime1">0</p>
+            </div>
+
+            <div class="time">
+                <h2 id="nomeTime2">Time 2</h2>
+                <p class="pontos" id="pontosTime2">0</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            
+            <div class="controle-time esquerda">
+                <button onclick="adicionarPonto('time1')">+1</button>
+                <button onclick="removerPonto('time1')">-1</button>
+            </div>
+
+            <button class="reset" onclick="resetarPlacar()">Resetar</button>
+
+            <div class="controle-time direita">
+                <button onclick="adicionarPonto('time2')">+1</button>
+                <button onclick="removerPonto('time2')">-1</button>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="placar.js"></script>
+</body>
+</html>
