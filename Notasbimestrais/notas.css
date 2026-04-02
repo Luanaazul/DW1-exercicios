@@ -1,0 +1,103 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* branco predominante */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    width: 100%;
+    background: linear-gradient(90deg, #007BFF, #00AEEF); /* tons de azul */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Card central */
+main {
+    background-color: #ffffff;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.2);
+    border: 2px solid #cce5ff; /* azul bem claro */
+}
+
+/* Títulos */
+main h1 {
+    color: #007BFF;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #0056b3; /* azul mais escuro */
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Foco */
+input:focus {
+    outline: none;
+    border: 1px solid #007BFF;
+    box-shadow: 0 0 5px #66b3ff;
+}
+
+/* Botão */
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hover */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Resultado */
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #003366;
+}
+
+/* Footer com aviso */
+footer {
+    margin-top: 20px;
+    background-color: #dc3545; /* vermelho */
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
