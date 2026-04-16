@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dogão</title>
+    <link rel="stylesheet" href="dogao.css">
+</head>
+<body>
+
+<main>
+    <section>
+        <h1>Mc Lanches Infelizes</h1>
+        <p>Bem-vindo! Faça seu pedido, prove e chore de felicidade!</p>
+
+        <h2>Lanches</h2>
+
+        <p class="item">
+            Cachorro Quente Básico - R$ 22,00
+            <label for="cachorrobasico">Quantidade:</label>
+            <input type="number" id="cachorrobasico" min="0" value="0">
+        </p>
+
+        <p class="item">
+            Cachorro Quente Duplo - R$ 26,00
+            <label for="cachorroduplo">Quantidade:</label>
+            <input type="number" id="cachorroduplo" min="0" value="0">
+        </p>
+
+        <p class="item">
+            X-Salada - R$ 29,00
+            <label for="xsalada">Quantidade:</label>
+            <input type="number" id="xsalada" min="0" value="0">
+        </p>
+
+        <h2>Bebidas</h2>
+
+        <p class="item">
+            Refrigerante 350ml - R$ 5,00
+            <label for="refrigerante">Quantidade:</label>
+            <input type="number" id="refrigerante" min="0" value="0">
+        </p>
+
+        <p class="item">
+            Refrigerante 1L - R$ 8,00
+            <label for="refrigerante1">Quantidade:</label>
+            <input type="number" id="refrigerante1" min="0" value="0">
+        </p>
+
+        <input type="button" value="Total" id="calcular" onclick="calcularTotal()">
+
+        <h3>Total: R$ <span id="total">0</span></h3>
+    </section>
+</main>
+
+<footer>
+    <p>Aproveite sua refeição!</p>
+</footer>
+
+<script src="dogao.js"></script>
+
+</body>
+</html>
