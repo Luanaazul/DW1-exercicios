@@ -1,0 +1,163 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f9ef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    width: 100%;
+    background: linear-gradient(90deg, #6b8e23, #8fbc8f);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Card central */
+main,
+.container {
+    background-color: #ffffff;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 12px;
+    width: 600px;
+    box-shadow: 0 0 12px rgba(107, 142, 35, 0.2);
+    border: 2px solid #d5e8c7;
+}
+
+/* Títulos */
+main h1,
+.container h1,
+.container h2,
+.container h3 {
+    color: #556b2f;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #4f6228;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #b7d3a8;
+    background-color: #fcfffb;
+}
+
+/* Foco */
+input:focus {
+    outline: none;
+    border: 1px solid #6b8e23;
+    box-shadow: 0 0 5px #9cc98a;
+}
+
+/* Notas */
+.notas-aluno {
+    margin-top: 15px;
+}
+
+.nota-item {
+    margin-bottom: 10px;
+}
+
+/* Preview da imagem */
+.preview-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#previewImagem {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    border: 3px solid #8fbc8f;
+    display: none;
+}
+
+/* Botão */
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #6b8e23;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Hover */
+button:hover {
+    background-color: #556b2f;
+}
+
+/* Área de resposta */
+.resposta {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #eef7e8;
+    color: #2f4f2f;
+}
+
+/* Sucesso */
+.sucesso {
+    background-color: #dff0d8;
+    color: #2e7d32;
+}
+
+/* Erro */
+.erro {
+    background-color: #ffe3e3;
+    color: #c62828;
+}
+
+/* Aviso */
+.aviso {
+    background-color: #fff4d6;
+    color: #8a6d00;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    background-color: #556b2f;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+
+    main,
+    .container {
+        width: 95%;
+    }
+}
