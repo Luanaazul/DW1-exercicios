@@ -1,14 +1,14 @@
-let listaCarro = []; //conjunto de dados
+let listaFilme = []; //conjunto de dados
 let oQueEstaFazendo = ''; //variável global de controle
-let carro = null; //variavel global 
+let filme = null; //variavel global 
 bloquearAtributos(true);
 //backend (não interage com o html)
 function procurePorChavePrimaria(chave) {
-    for (let i = 0; i < listaCarro.length; i++) {
-        const carro = listaCarro[i];
-        if (carro.id == chave) {
-            carro.posicaoNaLista = i;
-            return listaCarro[i];
+    for (let i = 0; i < listaFilme.length; i++) {
+        const filme = listaFilme[i];
+        if (filme.id == chave) {
+            filme.posicaoNaLista = i;
+            return listaFilme[i];
         }
     }
     return null;//não achou
@@ -24,9 +24,9 @@ function procure() {
     }
 
     if (id) { // se digitou um Id
-        carro = procurePorChavePrimaria(id);
-        if (carro) { //achou na lista
-            mostrarDadoscarro(carro);
+        filme = procurePorChavePrimaria(id);
+        if (filme) { //achou na lista
+            mostrarDadosfilme(filme);
             visibilidadeDosBotoes('inline', 'none', 'inline', 'inline', 'none'); // Habilita botões de alterar e excluir
             mostrarAviso("Achou na lista, pode alterar ou excluir");
         } else { //não achou na lista
@@ -77,36 +77,38 @@ function salvar() {
     // obter os dados a partir do html
 
     let id;
-    if (carro == null) {
+    if (filme == null) {
         id = parseInt(document.getElementById("inputId").value);
     } else {
-        id = carro.id;
+        id = filme.id;
     }
 
     const nome = document.getElementById("inputNome").value;
-     const modelo = document.getElementById("inputModelo").value;
+     const genero = document.getElementById("inputGenero").value;
       const ano = document.getElementById("inputAno").value;
+       const diretor = document.getElementById("inputDiretor").value;
+      const duracao = document.getElementById("inputDuracao").value;
     //verificar se o que foi digitado pelo USUÁRIO está correto
-    if (id && nome && modelo && ano) {// se tudo certo 
+    if (id && nome && genero && ano && diretor && duracao ) {// se tudo certo 
         switch (oQueEstaFazendo) {
             case 'inserindo':
-                carro = new Carro(id, nome, modelo, ano);
-                listaCarro.push(carro);
+                filme = new Filme(id, nome, genero, ano, diretor, duracao);
+                listaFilme.push(filme);
                 mostrarAviso("Inserido na lista");
                 break;
             case 'alterando':
-                carroAlterado = new Carro(id, nome, modelo, ano);
-                listaCarro[carro.posicaoNaLista] = carroAlterado;
+                filmeAlterado = new Filme(id, nome, genero, ano, diretor, duracao) ;
+                listaFilme[filme.posicaoNaLista] = filmeAlterado;
                 mostrarAviso("Alterado");
                 break;
             case 'excluindo':
                 let novaLista = [];
-                for (let i = 0; i < listaCarro.length; i++) {
-                    if (carro.posicaoNaLista != i) {
-                        novaLista.push(listaCarro[i]);
+                for (let i = 0; i < listaFilme.length; i++) {
+                    if (filme.posicaoNaLista != i) {
+                        novaLista.push(listaFilme[i]);
                     }
                 }
-                listaCarro = novaLista;
+                listaFilme = novaLista;
                 mostrarAviso("EXCLUIDO");
                 break;
             default:
@@ -131,15 +133,16 @@ function preparaListagem(vetor) {
         texto +=
             linha.id + " - " +
             linha.nome + 
-             linha.modelo + " - " +
-            linha.ano + "<br>";
+             linha.genero + " - " +
+            linha.ano +  linha.diretor + " - " +
+            linha.duracao + "<br>";
     }
     return texto;
 }
 
 //backend->frontend (interage com html)
 function listar() {
-    document.getElementById("outputSaida").innerHTML = preparaListagem(listaCarro);
+    document.getElementById("outputSaida").innerHTML = preparaListagem(listaFilme);
 }
 
 function cancelarOperacao() {
@@ -154,12 +157,14 @@ function mostrarAviso(mensagem) {
     document.getElementById("divAviso").innerHTML = mensagem;
 }
 
-// Função para mostrar os dados do carro nos campos
-function mostrarDadoscarro(carro) {
-    document.getElementById("inputId").value = carro.id;
-    document.getElementById("inputNome").value = carro.nome;
-    document.getElementById("inputModelo").value = carro.modelo;
-    document.getElementById("inputAno").value = carro.ano;
+// Função para mostrar os dados do filme nos campos
+function mostrarDadosfilme(filme) {
+    document.getElementById("inputId").value = filme.id;
+    document.getElementById("inputNome").value = filme.nome;
+    document.getElementById("inputGenero").value = filme.genero;
+    document.getElementById("inputAno").value = filme.ano;
+    document.getElementById("inputDiretor").value = filme.diretor;
+    document.getElementById("inputDuracao").value = filme.duracao;
 
     // Define os campos como readonly
     bloquearAtributos(true);
@@ -168,8 +173,10 @@ function mostrarDadoscarro(carro) {
 // Função para limpar os dados dos campos
 function limparAtributos() {
     document.getElementById("inputNome").value = "";
-    document.getElementById("inputModelo").value = "";
+    document.getElementById("inputGenero").value = "";
     document.getElementById("inputAno").value = "";
+    document.getElementById("inputDiretor").value = "";
+    document.getElementById("inputDuracao").value = "";
 
     bloquearAtributos(true);
 }
@@ -178,8 +185,10 @@ function bloquearAtributos(soLeitura) {
     //quando a chave primaria possibilita edicao, tranca (readonly) os outros e vice-versa
     document.getElementById("inputId").readOnly = !soLeitura;
     document.getElementById("inputNome").readOnly = soLeitura;
-     document.getElementById("inputModelo").readOnly =soLeitura;
+     document.getElementById("inputGenero").readOnly =soLeitura;
     document.getElementById("inputAno").readOnly = soLeitura;
+    document.getElementById("inputDiretor").readOnly =soLeitura;
+    document.getElementById("inputDuracao").readOnly = soLeitura;
 }
 
 // Função para deixar visível ou invisível os botões
@@ -238,40 +247,44 @@ function abrirArquivoSalvoEmLocalPermanente() {
 
 
 function prepararESalvarCSV() { //gera um arquivo csv com as informações da lista. Vai enviar da memória RAM para dispositivo de armazenamento permanente.
-    let nomeDoArquivoDestino = "./carro.csv";  //define o nome do arquivo csv
+    let nomeDoArquivoDestino = "./filme.csv";  //define o nome do arquivo csv
     let textoCSV = "";
      let fimDeLinha = "\n";
-    for (let i = 0; i < listaCarro.length; i++) {
-        const linha = listaCarro[i]; //variavel linha contem as informações de cada carro
-         if (i == listaCarro.length - 1) {
+    for (let i = 0; i < listaFilme.length; i++) {
+        const linha = listaFilme[i]; //variavel linha contem as informações de cada filme
+         if (i == listaFilme.length - 1) {
             fimDeLinha = "";
         }
         textoCSV += linha.id + ";" +
-            linha.nome +linha.modelo + ";" +
-            linha.ano +  fimDeLinha;
+            linha.nome +linha.genero + ";" +
+            linha.ano + ";" + linha.diretor + ";" +
+            linha.duracao +  fimDeLinha;
+    }
     }
     persistirEmLocalPermanente(nomeDoArquivoDestino, textoCSV);
-}
 
 
-// Função para processar o arquivo CSV e transferir os dados para a listaCarro
+
+// Função para processar o arquivo CSV e transferir os dados para a listaFilme
 function converterDeCSVparaListaObjeto(arquivo) {
     const leitor = new FileReader();  //objeto que permite ler arquivos locais no navegador 
     leitor.onload = function (e) {
         const conteudo = e.target.result; // Conteúdo do arquivo CSV
         const linhas = conteudo.split('\n'); // Separa o conteúdo por linha
-        listaCarro = []; // Limpa a lista atual (se necessário)
+        listaFilme = []; // Limpa a lista atual (se necessário)
         for (let i = 0; i < linhas.length; i++) {
             const linha = linhas[i].trim();  //linhas[i] representa cada linha do arquivo CSV
             if (linha) { //verifica se a linha não está vazia
                 const dados = linha.split(';'); // Separa os dados por ';'
                 if (dados.length === 2) { //verifica os seis campos
-                    // Adiciona os dados à listaCarro como um objeto
-                    listaCarro.push({
+                    // Adiciona os dados à listaFilme como um objeto
+                    listaFilme.push({
                         id: dados[0],
                         nome: dados[1],
-                        modelo: dados [2],
-                        ano: dados[3]
+                        genero: dados [2],
+                        ano: dados[3],
+                        diretor: dados[4],
+                        duracao: dados [5]
                     });
                 }
             }

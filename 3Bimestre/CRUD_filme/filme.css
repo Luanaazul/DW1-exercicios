@@ -1,0 +1,408 @@
+
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #141414;
+    color: white;
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+}
+
+
+/* ========================================
+   TÍTULO
+======================================== */
+
+h1 {
+    text-align: center;
+
+    color: #e50914;
+
+    font-size: 36px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   AVISO
+======================================== */
+
+#divAviso {
+    width: 850px;
+
+    min-height: 35px;
+
+    margin: 0 auto 15px;
+
+    padding: 10px 15px;
+
+    background-color: #222 !important;
+
+    border-left: 4px solid #e50914;
+
+    border-radius: 4px;
+
+    color: #ddd;
+}
+
+
+/* ========================================
+   PAINEL HORIZONTAL
+======================================== */
+
+.painel {
+
+    width: 850px;
+
+    min-height: 430px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: stretch;
+
+    background-color: #181818;
+
+    border: 1px solid #333;
+
+    border-radius: 8px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========================================
+   LADO ESQUERDO
+======================================== */
+
+.areaCadastro {
+
+    width: 55%;
+
+    padding-right: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+.campo {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 13px;
+}
+
+.campo label {
+
+    width: 135px;
+
+    margin-right: 10px;
+
+    color: #ddd;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    text-align: right;
+}
+
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.campo input[type="text"],
+.campo input[type="date"],
+.campo input[type="number"],
+.campo select {
+
+    width: 230px;
+
+    height: 36px;
+
+    padding: 8px 10px;
+
+    background-color: #252525;
+
+    color: white;
+
+    border: 1px solid #444;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   FOCO NOS INPUTS
+======================================== */
+
+.campo input:focus,
+.campo select:focus {
+
+    border-color: #e50914;
+
+    box-shadow: 0 0 5px rgba(229, 9, 20, 0.4);
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+input[type="button"] {
+
+    padding: 9px 15px;
+
+    margin: 3px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background-color: #e50914;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+input[type="button"]:hover {
+
+    background-color: #f40612;
+
+    transform: scale(1.03);
+}
+
+
+/* ========================================
+   BOTÕES DO ID
+======================================== */
+
+#inputId {
+    width: 150px !important;
+}
+
+
+/* ========================================
+   BOTÕES DE OPERAÇÃO
+======================================== */
+
+.botoes {
+
+    margin-top: 10px;
+
+    margin-left: 145px;
+}
+
+
+/* ========================================
+   DIVISÓRIA ENTRE OS DOIS LADOS
+======================================== */
+
+.divisoria {
+
+    width: 1px;
+
+    background-color: #333;
+
+    margin: 0 25px;
+}
+
+
+/* ========================================
+   LADO DIREITO
+======================================== */
+
+.areaFilmes {
+
+    width: 45%;
+
+    padding-left: 5px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* ========================================
+   TÍTULO DOS FILMES
+======================================== */
+
+.areaFilmes h2 {
+
+    color: #e50914;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   LISTA / RESULTADOS
+======================================== */
+
+#outputSaida {
+
+    width: 100%;
+
+    height: 250px;
+
+    overflow-y: auto;
+
+    padding: 15px;
+
+    background-color: #222 !important;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 5px;
+
+    color: #ddd;
+
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+
+/* ========================================
+   BOTÕES DE ARQUIVO
+======================================== */
+
+.botoesArquivo {
+
+    text-align: center;
+
+    margin-top: 12px;
+}
+
+#btPersisitir,
+#btRecuperar {
+
+    background-color: #333;
+}
+
+#btPersisitir:hover,
+#btRecuperar:hover {
+
+    background-color: #555;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .painel,
+    #divAviso {
+
+        width: 95%;
+    }
+
+    .painel {
+
+        flex-direction: column;
+
+        height: auto;
+    }
+
+    .areaCadastro,
+    .areaFilmes {
+
+        width: 100%;
+
+        padding: 0;
+    }
+
+    .divisoria {
+
+        width: 100%;
+
+        height: 1px;
+
+        margin: 25px 0;
+    }
+
+    .areaFilmes {
+
+        margin-top: 10px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .campo {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .campo label {
+
+        width: auto;
+
+        margin-bottom: 5px;
+
+        text-align: left;
+    }
+
+    .campo input[type="text"],
+    .campo input[type="date"],
+    .campo input[type="number"],
+    .campo select {
+
+        width: 100% !important;
+    }
+
+    .botoes {
+
+        margin-left: 0;
+    }
+}

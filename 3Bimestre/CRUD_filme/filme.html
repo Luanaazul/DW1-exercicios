@@ -1,49 +1,142 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>CRUD Carro</title>
-   <link rel="stylesheet" href="carro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Filme</title>
+    <link rel="stylesheet" href="filme.css">
 </head>
 
 <body>
 
-   <h1>Cadastro de carros</h1>
+    <h1>Cadastro de filmes</h1>
 
-   <label for="inputId">Id</label>
-   <input type="text" name="inputId" id="inputId">
-   <input type="button" value="Procure" id="btProcure" onclick="procure()" style="display:inline;">
-   <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
-   <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
-   <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
-   <br><br>
+    <div id="divAviso"></div>
 
-   <label for="inputNome">Nome</label>
-   <input type="text" name="inputNome" id="inputNome">
-   <br>
-   <label for="inputNome">Modelo</label>
-   <input type="text" name="inputModelo" id="inputModelo">
-   <br>
-   <label for="inputNome">Ano de lancamento</label>
-   <input type="date" name="inputAno" id="inputAno">
-   <br>
-   <br><br>
-   <div id="divAviso" style="background-color: antiquewhite;"></div>
-   <br>
-   <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
-   <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()" style="display:none;">
-   <br><br>
-   <!-- <input type="button" value="Listar" onclick="listar()">
-    <br><br> -->
+    <main class="painel">
 
-   <div id="outputSaida" style="background-color: rgb(255, 191, 88);">...</div>
+        <!-- CADASTRO - LADO ESQUERDO -->
+        <section class="areaCadastro">
 
-   <input type="button" value="Persistir" id="btPersisitir" onclick="prepararESalvarCSV()">
-   <input type="button" value="Recuperar" id="btRecuperar" onclick="abrirArquivoSalvoEmLocalPermanente()">
-   <script src="./carro.js"></script>
-   <script src="./carroControle.js"></script>
+            <div class="campo">
+                <label for="inputId">Id</label>
+
+                <input type="text" name="inputId" id="inputId">
+
+                <input type="button"
+                       value="Procure"
+                       id="btProcure"
+                       onclick="procure()">
+
+                <input type="button"
+                       value="Inserir"
+                       id="btInserir"
+                       onclick="inserir()"
+                       style="display: none;">
+
+                <input type="button"
+                       value="Alterar"
+                       id="btAlterar"
+                       onclick="alterar()"
+                       style="display: none;">
+
+                <input type="button"
+                       value="Excluir"
+                       id="btExcluir"
+                       onclick="excluir()"
+                       style="display: none;">
+            </div>
+
+            <div class="campo">
+                <label for="inputNome">Nome</label>
+
+                <input type="text"
+                       name="inputNome"
+                       id="inputNome">
+            </div>
+
+            <div class="campo">
+                <label for="inputAno">Ano de lançamento</label>
+
+                <input type="date"
+                       name="inputAno"
+                       id="inputAno">
+            </div>
+
+            <div class="campo">
+                <label for="inputGenero">Gênero</label>
+
+                <select id="inputGenero">
+                    <option value="Fantasia">Fantasia</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Clássico">Clássico</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="inputDiretor">Diretor</label>
+
+                <input type="text"
+                       name="inputDiretor"
+                       id="inputDiretor">
+            </div>
+
+            <div class="campo">
+                <label for="inputDuracao">Duração</label>
+
+                <input type="number"
+                       name="inputDuracao"
+                       id="inputDuracao">
+            </div>
+
+            <div class="botoes">
+
+                <input type="button"
+                       value="Salvar"
+                       id="btSalvar"
+                       onclick="salvar()"
+                       style="display: none;">
+
+                <input type="button"
+                       value="Cancelar"
+                       id="btCancelar"
+                       onclick="cancelarOperacao()"
+                       style="display: none;">
+
+            </div>
+
+        </section>
+
+        <div class="divisoria"></div>
+
+        <section class="areaFilmes">
+            <h2>Filmes cadastrados</h2>
+            <div id="outputSaida"></div>
+            <div class="botoesArquivo">
+
+                <input type="button"
+                       value="Persistir"
+                       id="btPersisitir"
+                       onclick="prepararESalvarCSV()">
+
+                <input type="button"
+                       value="Recuperar"
+                       id="btRecuperar"
+                       onclick="abrirArquivoSalvoEmLocalPermanente()">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="./filme.js"></script>
+    <script src="./filmeControle.js"></script>
+
 </body>
 
 </html>
